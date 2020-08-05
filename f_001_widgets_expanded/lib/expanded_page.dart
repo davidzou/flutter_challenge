@@ -74,7 +74,7 @@ class _ExpandedState extends State<_ExpandedStatePage> {
         children: <Widget>[
           MainTitleWidget("Expanded to be used."),
           SwitchListTile(
-            title: Text("Red Expanded"),
+            title: Text("Red"),
             value: enableRedExpanded,
             onChanged: (bool onChanged) {
               setState(() {
@@ -83,7 +83,7 @@ class _ExpandedState extends State<_ExpandedStatePage> {
             },
           ),
           SwitchListTile(
-            title: Text("Green Expanded"),
+            title: Text("Green"),
             value: enableGreenExpanded,
             onChanged: (bool onChanged) {
               setState(() {
@@ -92,7 +92,7 @@ class _ExpandedState extends State<_ExpandedStatePage> {
             },
           ),
           SwitchListTile(
-            title: Text("Blue Expanded"),
+            title: Text("Blue"),
             value: enableBlueExpanded,
             onChanged: (bool onChanged) {
               setState(() {
