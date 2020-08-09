@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:plume/widget/head.dart';
 
 class ExpandedPage extends StatelessWidget {
   @override
@@ -72,7 +73,7 @@ class _ExpandedState extends State<_ExpandedStatePage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.max,
         children: <Widget>[
-          MainTitleWidget("Expanded to be used."),
+          HeadTitle("Expanded to be used."),
           SwitchListTile(
             title: Text("Red"),
             value: enableRedExpanded,
@@ -114,7 +115,7 @@ class _ExpandedState extends State<_ExpandedStatePage> {
           SizedBox(
             height: 20.0,
           ),
-          MainTitleWidget("Expanded by flex value."),
+          HeadTitle("Expanded by flex value."),
           LabelCount(
             "RED",
             start: redFlex,
@@ -235,66 +236,6 @@ class _LabelCountState extends State<LabelCount> {
   @override
   Widget build(BuildContext context) {
     return countWidget();
-  }
-}
-
-///
-/// 边框标题
-///
-class MainTitleWidget extends StatelessWidget {
-  final title;
-  final subTitle;
-
-  MainTitleWidget(this.title, {this.subTitle});
-
-  List<Widget> children(String title, String subTitle) {
-    List<Widget> list = [];
-    if (title != null) {
-      var tx = Text(
-        title,
-        style: TextStyle(
-          color: ExpandedStyle.googleBlue,
-          fontSize: 18,
-          fontWeight: FontWeight.bold,
-        ),
-      );
-      list.add(tx);
-    }
-    if (subTitle != null) {
-      var subTx = Text(
-        subTitle,
-        style: TextStyle(
-          color: ExpandedStyle.googleBlue,
-          fontSize: 14.0,
-        ),
-      );
-      list.add(subTx);
-    }
-    return list;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 8),
-      decoration: BoxDecoration(
-        border: Border(
-          top: BorderSide(width: 2, color: ExpandedStyle.googleBlue),
-          bottom: BorderSide(width: 2, color: ExpandedStyle.googleBlue),
-          left: BorderSide(width: 10, color: ExpandedStyle.googleBlue),
-          right: BorderSide(width: 2, color: ExpandedStyle.googleBlue),
-        ),
-      ),
-      child: Container(
-        width: double.infinity,
-        margin: EdgeInsets.all(8),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.max,
-          children: children(title, subTitle),
-        ),
-      ),
-    );
   }
 }
 
