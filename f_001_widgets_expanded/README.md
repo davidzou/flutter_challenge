@@ -4,4 +4,4 @@ A new Flutter application for widget expanded.
 
 ## Getting Started
 
-![](doc/image/expanded.png/fw/200)
+![](doc/image/expanded.png){:width="200"}
