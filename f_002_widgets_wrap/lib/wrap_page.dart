@@ -20,31 +20,23 @@ class _WrapStatePage extends StatefulWidget {
 }
 
 class _WrapState extends State<_WrapStatePage> {
-  Widget block({Color color, double width, double height}) {
-    return Container(
-      color: color ?? Colors.lightBlueAccent,
-      width: width ?? 80,
-      height: height ?? 80,
-      child: Text(""),
-    );
-  }
 
   List<Widget> children() {
     return [
-      block(color: Colors.tealAccent, width: 120, height: 80),
-      block(),
-      block(color: Colors.green),
-      block(color: Colors.red),
-      block(color: Colors.lightGreenAccent, height: 200),
-      block(height: 200, width: 80),
-      block(color: Colors.lightGreenAccent, height: 200),
-      block(height: 200, color: Colors.lightGreenAccent),
-      block(color: Colors.red, height: 200),
-      block(height: 200),
-      block(color: Colors.green, height: 200),
-      block(width: 100),
-      block(width: 100, height: 150, color: Colors.pinkAccent),
-      Block(title: "1",)
+      Block(color: Colors.tealAccent, width: 120, height: 80),
+      Block(),
+      Block(color: Colors.green),
+      Block(color: Colors.red),
+      Block(color: Colors.lightGreenAccent, height: 200),
+      Block(height: 200, width: 80),
+      Block(color: Colors.lightGreenAccent, height: 200),
+      Block(height: 200, color: Colors.lightGreenAccent),
+      Block(color: Colors.red, height: 200),
+      Block(height: 200),
+      Block(color: Colors.green, height: 200),
+      Block(width: 100),
+      Block(width: 100, height: 150, color: Colors.pinkAccent),
+      Block(title: "我被换行了",)
     ];
   }
 
