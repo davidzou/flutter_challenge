@@ -23,7 +23,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  plume: ^0.0.3
+  plume: ^0.0.8
 
 
   # The following adds the Cupertino Icons font to your application.

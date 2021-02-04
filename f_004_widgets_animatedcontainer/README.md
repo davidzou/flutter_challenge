@@ -1,16 +1,8 @@
 # f_004_widgets_animatedcontainer
 
-A new Flutter project.
+<img src="doc/image/f_004_widgets_animatedcontainer.gif" width="280">
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![](doc/image/f_004_widgets_animatedcontainer_step1.png){:width=200} ![](doc/image/f_004_widgets_animatedcontainer_step2.png){:width=200}
