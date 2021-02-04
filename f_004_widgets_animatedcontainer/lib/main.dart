@@ -10,8 +10,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+        primaryColor: Colors.lightBlueAccent,
+        primaryColorLight: Colors.lightBlue,
+        disabledColor: Colors.lightBlue,
+        unselectedWidgetColor: Colors.lightGreenAccent, // CheckBox 外框颜色，为选中状态下
+        // primarySwatch: Colors.blue,
+        // visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(title: '004_widgets_animatedcontainer'),
     );
