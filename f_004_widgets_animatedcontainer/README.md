@@ -1,8 +1,7 @@
 # f_004_widgets_animatedcontainer
 
-<img src="doc/image/f_004_widgets_animatedcontainer.gif" width="280">
+A new Flutter application for widget 'AnimatedContainer'.
 
+## Getting Started
 
-
-
-![](doc/image/f_004_widgets_animatedcontainer_step1.png){:width=200} ![](doc/image/f_004_widgets_animatedcontainer_step2.png){:width=200}
+<img src="https://github.com/davidzou/flutter_challenge/blob/master/f_004_widgets_animatedcontainer/doc/image/004_widgets_animatedcontainer.gif" width="280"/>
