@@ -10,12 +10,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter Challenge',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'f_005_widgets_opacity'),
     );
   }
 }
@@ -29,11 +29,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  double _opacity = 0;
 
-  void _incrementCounter() {
+  void _setOpacity() {
     setState(() {
-      _counter++;
+      _opacity = (_opacity == 1.0) ? 0 : 1.0;
     });
   }
 
@@ -42,28 +42,22 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        centerTitle: true,
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            // Text(
-            //   'You have pushed the button this many times:',
-            // ),
-            // Text(
-            //   '$_counter',
-            //   style: Theme.of(context).textTheme.headline4,
-            // ),
             Block(color: Colors.green,),
-            AnimatedOpacity(opacity: 0.0, duration: Duration(milliseconds: 500), child: Block(color: Colors.red,)),
+            AnimatedOpacity(opacity: _opacity, duration: Duration(milliseconds: 500), child: Block(color: Colors.red,)),
             Block(color: Colors.blue)
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: _setOpacity,
         tooltip: 'Increment',
-        child: Icon(Icons.add),
+        child: Icon(Icons.track_changes),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
