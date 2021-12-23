@@ -30,7 +30,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 const String text1 = "123456789.0, he ] was";
-const String text2 = "What's up?";
+const String text2 = "来点中文 ，看看";
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
