@@ -10,12 +10,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Challenge',
+      title: 'f_005_widgets_opacity',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'f_005_widgets_opacity'),
+      home: MyHomePage(title: '005 Opacity'),
     );
   }
 }
