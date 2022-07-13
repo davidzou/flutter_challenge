@@ -5,7 +5,7 @@ Flutter Useful Collection
 
 You can find any useful in this challenge by flutter widgets, pattern, third packages and more.
 
-<img src="f_001_widgets_expanded/doc/image/expanded.png" width="200"/> <img src="f_002_widgets_wrap/doc/image/demo.png" width="200"/> <img src="f_003_widget_valuelistenablebuilder/doc/image/003.png" width="200"/> <img src="https://github.com/davidzou/flutter_challenge/blob/master/f_004_widgets_animatedcontainer/doc/image/004_widgets_animatedcontainer.gif" width="200"/>
+<img src="f_001_widgets_expanded/doc/image/expanded.png" width="200"/> <img src="f_002_widgets_wrap/doc/image/demo.png" width="200"/> <img src="f_003_widget_valuelistenablebuilder/doc/image/003.png" width="200"/> <img src="https://github.com/davidzou/flutter_challenge/blob/master/f_004_widgets_animatedcontainer/doc/image/004_widgets_animatedcontainer_small.gif" width="200"/>
 <br>
 
 ![opacity_small](f_005_widgets_opacity/doc/image/005_widgets_opacity_small.gif)
