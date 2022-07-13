@@ -22,11 +22,11 @@ class _WrapState extends State<_WrapStatePage> {
 
   List<Widget> children() {
     return [
-      Block(color: Colors.tealAccent, width: 120, height: 80),
-      Block(),
-      Block(color: Colors.green),
-      Block(color: Colors.red),
-      Block(color: Colors.lightGreenAccent, height: 200),
+      Block(color: Colors.tealAccent, width: 120, height: 80, title: "120*80",),
+      Block(title: "80*80",),
+      Block(color: Colors.green, title: "80*80",),
+      Block(color: Colors.red, title: "80*80",),
+      Block(color: Colors.lightGreenAccent, height: 200, title: "80*200",),
       Block(height: 200, width: 80),
       Block(color: Colors.lightGreenAccent, height: 200),
       Block(height: 200, color: Colors.lightGreenAccent),
