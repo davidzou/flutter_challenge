@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:plume/widget/block.dart';
 import 'package:plume/widget/head.dart';
 
@@ -23,13 +22,13 @@ class _ExpandedStatePage extends StatefulWidget {
 }
 
 class _ExpandedState extends State<_ExpandedStatePage> {
-  bool enableGreenExpanded;
-  bool enableBlueExpanded;
-  bool enableRedExpanded;
+  bool enableGreenExpanded = false;
+  bool enableBlueExpanded = false;
+  bool enableRedExpanded = false;
 
-  int redFlex;
-  int greenFlex;
-  int blueFlex;
+  int redFlex = 0;
+  int greenFlex = 0;
+  int blueFlex = 0;
 
   Widget block(Color color) {
     return Tooltip(
@@ -40,7 +39,9 @@ class _ExpandedState extends State<_ExpandedStatePage> {
       //   height: 80,
       //   child: Text(""),
       // ),
-      child: Block(color: color,),
+      child: Block(
+        color: color,
+      ),
     );
   }
 
@@ -170,9 +171,13 @@ typedef LabelCountChanged = void Function(int value);
 /// +----------------------------------------+
 ///
 class LabelCount extends StatefulWidget {
-  LabelCount(this.label, {Key key, this.start, this.onChanged, this.padding})
-      : assert(label != null),
-        super(key: key);
+  LabelCount(
+    this.label, {
+    Key? key,
+    this.start = 0,
+    this.onChanged,
+    this.padding,
+  }) : super(key: key);
 
   /// 标签字符
   final String label;
@@ -181,9 +186,9 @@ class LabelCount extends StatefulWidget {
   final int start;
 
   ///
-  final LabelCountChanged onChanged;
+  final LabelCountChanged? onChanged;
 
-  final EdgeInsetsGeometry padding;
+  final EdgeInsetsGeometry? padding;
 
   @override
   _LabelCountState createState() => _LabelCountState();
@@ -200,7 +205,7 @@ class _LabelCountState extends State<LabelCount> {
         count > 0 ? count-- : count = 0;
       }
     });
-    widget.onChanged.call(this.count);
+    widget.onChanged?.call(this.count);
   }
 
   Widget countWidget() {
@@ -232,7 +237,7 @@ class _LabelCountState extends State<LabelCount> {
   @override
   void initState() {
     super.initState();
-    count = widget?.start ?? 0;
+    count = widget.start;
   }
 
   @override
