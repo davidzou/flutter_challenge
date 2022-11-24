@@ -9,7 +9,7 @@ You can find any useful in this challenge by flutter widgets, pattern, third pac
 <br>
 
 [//]: # (![opacity_small]&#40;f_005_widgets_opacity/doc/image/005_widgets_opacity_small.gif&#41;)
-<img src="f_005_widgets_opacity/doc/image/005_widgets_opacity_small.gif" width="200"/>
+<img src="f_005_widgets_opacity/doc/image/005_widgets_opacity_small.gif" width="200"/> <img src="f_011_pattern_mvc/doc/image/011_pattern_mvc.gif" width="200"/>
 
 
 ## License:

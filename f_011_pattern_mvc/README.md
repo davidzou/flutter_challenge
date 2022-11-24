@@ -2,7 +2,7 @@
 
 A pattern what the basic mvc.
 
-<img src="doc/image/mvc.mp4" width="200"/>
+<img src="doc/image/011_pattern_mvc.gif" width="200"/>
 
 ## Getting Started
 

@@ -14,23 +14,23 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(title: '011 MVC'),
+      home: HomePage(title: '011_pattern_mvc'),
     );
   }
 }
 
 /// Avoid to use StatefulWidget when the view has not global state.
 class HomePage extends StatelessWidget {
-  const HomePage({
+  HomePage({
     Key? key,
     required this.title,
   }) : super(key: key);
 
   final String title;
+  final CountPointerController controller = CountPointerController(const CountPointValue());
 
   @override
   Widget build(BuildContext context) {
-    final CountPointerController controller = CountPointerController(0);
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
@@ -79,26 +79,6 @@ class HomePage extends StatelessWidget {
   }
 }
 
-/// C of pattern MVC, the 'int' who controller value is M of pattern MVC
-class CountPointerController extends ValueNotifier<int> {
-  CountPointerController(super.value);
-
-  /// Just add 1
-  add() {
-    value = value + 1;
-  }
-
-  /// Just plus 1
-  plus() {
-    value = value - 1;
-  }
-
-  /// Reset to 0.
-  reset() {
-    value = 0;
-  }
-}
-
 /// Just a Counter.   V of pattern MVC
 class CountPointer extends StatefulWidget {
   const CountPointer({
@@ -119,7 +99,6 @@ class CountPointer extends StatefulWidget {
 
 class _CountPointerState extends State<CountPointer> {
   RestorableCountPointController? _controller;
-
   CountPointerController get _effectController => widget.controller ?? _controller!.value;
 
   @override
@@ -131,22 +110,78 @@ class _CountPointerState extends State<CountPointer> {
 
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder<int>(
+    return ValueListenableBuilder<CountPointValue>(
       valueListenable: _effectController,
       builder: (context, value, child) {
-        widget.valueChanged?.call(value);
+        widget.valueChanged?.call(value.count);
         return Text(
-          "$value",
-          style: widget.style?.copyWith(color: value < 0 ? Colors.redAccent : Colors.black87),
+          "${value.count}",
+          style: widget.style?.copyWith(color: value.count < 0 ? Colors.redAccent : Colors.black87),
         );
       },
     );
   }
 }
 
-///
+// 这里两个仅为Int值
+// class RestorableCountPointController extends RestorableChangeNotifier<CountPointerController> {
+//   final int _initValue = 0;
+//
+//   @override
+//   CountPointerController createDefaultValue() {
+//     return CountPointerController(_initValue);
+//   }
+//
+//   @override
+//   CountPointerController fromPrimitives(Object? data) {
+//     return CountPointerController(data! as int);
+//   }
+//
+//   @override
+//   Object? toPrimitives() {
+//     return value.value;
+//   }
+// }
+
+// class CountPointerController extends ValueNotifier<int> {
+//   CountPointerController(super.value);
+//
+//   /// Just add 1
+//   add() {
+//     value = value + 1;
+//   }
+//
+//   /// Just plus 1
+//   plus() {
+//     value = value - 1;
+//   }
+//
+//   /// Reset to 0.
+//   reset() {
+//     value = 0;
+//   }
+// }
+
+// **** 这里重新定义了Model类型
+
+class CountPointerController extends ValueNotifier<CountPointValue> {
+  CountPointerController(super.value);
+
+  add() {
+    value = CountPointValue(count: value.count + 1);
+  }
+
+  plus() {
+    value = CountPointValue(count: value.count - 1);
+  }
+
+  reset() {
+    value = const CountPointValue();
+  }
+}
+
 class RestorableCountPointController extends RestorableChangeNotifier<CountPointerController> {
-  final int _initValue = 0;
+  final CountPointValue _initValue = const CountPointValue();
 
   @override
   CountPointerController createDefaultValue() {
@@ -155,11 +190,33 @@ class RestorableCountPointController extends RestorableChangeNotifier<CountPoint
 
   @override
   CountPointerController fromPrimitives(Object? data) {
-    return CountPointerController(data! as int);
+    return CountPointerController(data! as CountPointValue);
   }
 
   @override
   Object? toPrimitives() {
     return value.value;
   }
+}
+
+@immutable
+class CountPointValue {
+  const CountPointValue({this.count = 0});
+  final int count;
+
+  CountPointValue copyWith({int? count}) {
+    return CountPointValue(count: count ?? this.count);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    return other is CountPointValue && other.count == count;
+  }
+
+  @override
+  int get hashCode => count.hashCode;
+
 }
