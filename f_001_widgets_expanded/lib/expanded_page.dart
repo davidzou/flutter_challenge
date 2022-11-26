@@ -53,6 +53,7 @@ class _ExpandedState extends State<_ExpandedStatePage> {
 
   Widget expandedFlexBlock(int flex, Color color) {
     return Expanded(
+
       flex: flex,
       child: block(color),
     );
