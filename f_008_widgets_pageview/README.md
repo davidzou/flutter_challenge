@@ -4,4 +4,4 @@ A new Flutter application for widget 'PageView'.
 
 ## Getting Started
 
-<img src="doc/image/huangshan.png" width="280" />
+<img src="doc/image/live.gif" />

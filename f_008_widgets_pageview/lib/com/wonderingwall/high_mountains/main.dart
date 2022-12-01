@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(title: 'Flutter PageView'),
+      home: HomePage(title: '008 PageView'),
     );
   }
 }
@@ -50,7 +50,9 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height * 5 / 7;
     return Scaffold(
+      // appBar: AppBar(title: Text(widget.title),),
       body: Stack(
         children: [
           AnimatedContainer(
@@ -62,7 +64,7 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                height: MediaQuery.of(context).size.height * 5 / 7,
+                height: height,
                 child: PageView.builder(
                   itemBuilder: (context, index) {
                     return itemBuilder(index);
