@@ -79,7 +79,7 @@ class HomePage extends StatelessWidget {
   }
 }
 
-/// Just a Counter.   V of pattern MVC
+/// Just a Counter Widget.   V of pattern MVC
 class CountPointer extends StatefulWidget {
   const CountPointer({
     Key? key,
@@ -163,7 +163,7 @@ class _CountPointerState extends State<CountPointer> {
 // }
 
 // **** 这里重新定义了Model类型
-
+/// Just a Controller.   C of pattern MVC
 class CountPointerController extends ValueNotifier<CountPointValue> {
   CountPointerController(super.value);
 
@@ -199,6 +199,7 @@ class RestorableCountPointController extends RestorableChangeNotifier<CountPoint
   }
 }
 
+/// Just a Model.   M of pattern MVC
 @immutable
 class CountPointValue {
   const CountPointValue({this.count = 0});
