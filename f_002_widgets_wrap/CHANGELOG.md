@@ -1,3 +1,5 @@
+[v2.0.0]
+* 升级更新页面可调整设置spacing和runSpacing的值，更直观的看到Wrap的可设置的值。
 
 [v1.1.0]
 * 升级支持Null-Safety
