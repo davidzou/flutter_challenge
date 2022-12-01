@@ -29,6 +29,7 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
+const String text0 = "abc,defg,ABCD,EFG,";
 const String text1 = "123456789.0, he ] was";
 const String text2 = "来点中文 ，看看";
 
@@ -61,13 +62,10 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  const Text(
-                    text1,
-                  ),
-                  const Text(
-                    text2,
-                  ),
-                  const SizedBox(height: 20,),
+                  const Text(text0),
+                  const Text(text1),
+                  const Text(text2),
+                  const SizedBox(height: 20),
                   Text(
                     _counter % 2 == 0 ? "TextDirection.ltr" : "TextDirection.rtl",
                     style: Theme.of(context).textTheme.headline4,
