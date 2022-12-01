@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(title: '011_pattern_mvc'),
+      home: HomePage(title: '011 MVC Pattern'),
     );
   }
 }

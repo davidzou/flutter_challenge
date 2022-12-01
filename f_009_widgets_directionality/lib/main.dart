@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: '\'Directionality\' of Widgets'),
+      home: const MyHomePage(title: '009 Directionality'),
     );
   }
 }

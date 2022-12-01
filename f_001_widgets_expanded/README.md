@@ -4,6 +4,8 @@ A new Flutter application for widget 'Expanded'.
 
 ## Getting Started
 
+<img src="doc/image/live.gif" width="280" />
+
 <img src="doc/image/expanded.png" width="280" />
 
 Expanded 就是扩充的意思吧。

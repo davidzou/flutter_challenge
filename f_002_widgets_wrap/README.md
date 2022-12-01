@@ -10,4 +10,4 @@ A new Flutter application for widget 'Wrap'.
 
 #version 1.1.0
 
-<img src="doc/image/demo.png" width="280" />
+<img src="doc/image/wrap.png" width="280" />
