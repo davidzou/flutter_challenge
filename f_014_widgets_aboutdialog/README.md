@@ -4,4 +4,5 @@ A new Flutter application for widget 'AboutDialog'.
 
 ## Getting Started
 
-<img src="doc/image/aboutdialog.png" width="280" />
+
+<img src="doc/image/live.gif" />
