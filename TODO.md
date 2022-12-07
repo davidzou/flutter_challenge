@@ -5,16 +5,16 @@
 [X] 3. ValueListenableBuilder
 [X] 4. AnimatedContainer
 [X] 5. Opacity
-[ ] 7. ClipPath
-[ ] 8. PageView
-[ ] 9. Directionality
-[ ] 10. TextField
-[ ] 12. FocusTraversalGroup
-[ ] 13. FocusScope
-[ ] 14. AboutDialog
-[ ] 15. Flexible
+[X] 7. ClipPath
+[X] 8. PageView
+[X] 9. Directionality
+[X] 10. TextField
+[X] 12. FocusTraversalGroup
+[X] 13. FocusScope
+[X] 14. AboutDialog
+[X] 15. Row & Column
 
-[ ] Row & Column
+[ ] Flexible
 [ ] ElevatedButton
 [ ] OutlinedButton
 [ ] TextButton
