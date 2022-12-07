@@ -15,36 +15,63 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(title: '015 Row & Column'),
+      home: HomePage(title: '015 Row & Column'),
     );
   }
 }
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key, required this.title}) : super(key: key);
+  HomePage({Key? key, required this.title}) : super(key: key);
   final String title;
+
+  final ValueNotifier<bool> enable = ValueNotifier(false);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
+        bottom: PreferredSize(
+          preferredSize: const Size(0.0, 160.0),
+          child: Column(
+            children: [
+              _buildDropDown(MainAxisSize.values, onChanged: (value) {
+                FlexNotifier.instance().mainAxisSize = value!;
+              }, initValue: FlexNotifier.instance().mainAxisSize),
+              _buildDropDown(MainAxisAlignment.values, onChanged: (value) {
+                FlexNotifier.instance().mainAxisAlignment = value!;
+              }, initValue: FlexNotifier.instance().mainAxisAlignment),
+              _buildDropDown(CrossAxisAlignment.values, onChanged: (value) {
+                FlexNotifier.instance().crossAxisAlignment = value!;
+              }, initValue: FlexNotifier.instance().crossAxisAlignment),
+              StatefulBuilder(
+                builder: (context, setState) {
+                  return Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text("Column"),
+                      Switch(
+                          value: enable.value,
+                          onChanged: (value) {
+                            setState(() {
+                              enable.value = value;
+                            });
+                          }),
+                      const Text("Row"),
+                    ],
+                  );
+                }
+              )
+            ],
+          ),
+        ),
       ),
-      body: Column(
-        children: <Widget>[
-          _buildDropDown(MainAxisSize.values, onChanged: (value) {
-            FlexNotifier.instance().mainAxisSize = value!;
-          }, initValue: FlexNotifier.instance().mainAxisSize),
-          _buildDropDown(MainAxisAlignment.values, onChanged: (value) {
-            FlexNotifier.instance().mainAxisAlignment = value!;
-          }, initValue: FlexNotifier.instance().mainAxisAlignment),
-          _buildDropDown(CrossAxisAlignment.values, onChanged: (value) {
-            FlexNotifier.instance().crossAxisAlignment = value!;
-          }, initValue: FlexNotifier.instance().crossAxisAlignment),
-          const SizedBox(height: 100,),
-          Container(decoration: const BoxDecoration(color: Colors.amber), child: const RowWidget()),
-        ],
-      ),
+      body: ValueListenableBuilder(
+          valueListenable: enable,
+          builder: (context, bool value, Widget? child) {
+            return Container(decoration: const BoxDecoration(color: Colors.amber), child: value ? const RowWidget() : const ColumnWidget());
+          }),
     );
   }
 
@@ -91,6 +118,45 @@ class _RowWidgetState extends State<RowWidget> {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisSize: FlexNotifier.instance().mainAxisSize,
+      mainAxisAlignment: FlexNotifier.instance().mainAxisAlignment,
+      crossAxisAlignment: FlexNotifier.instance().crossAxisAlignment,
+      children: const [
+        Icon(Icons.card_giftcard, size: 32.0),
+        Icon(Icons.card_giftcard, size: 80.0),
+        Icon(Icons.card_giftcard, size: 48.0),
+      ],
+    );
+  }
+
+  _refresh() {
+    setState(() {});
+  }
+}
+
+class ColumnWidget extends StatefulWidget {
+  const ColumnWidget({super.key});
+
+  @override
+  State<ColumnWidget> createState() => _ColumnWidgetState();
+}
+
+class _ColumnWidgetState extends State<ColumnWidget> {
+  @override
+  void initState() {
+    super.initState();
+    FlexNotifier.instance().addListener(_refresh);
+  }
+
+  @override
+  void dispose() {
+    FlexNotifier.instance().removeListener(_refresh);
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
       mainAxisSize: FlexNotifier.instance().mainAxisSize,
       mainAxisAlignment: FlexNotifier.instance().mainAxisAlignment,
       crossAxisAlignment: FlexNotifier.instance().crossAxisAlignment,
