@@ -33,12 +33,6 @@ class _ExpandedState extends State<_ExpandedStatePage> {
   Widget block(Color color) {
     return Tooltip(
       message: "$color",
-      // child: Container(
-      //   color: color,
-      //   width: 80,
-      //   height: 80,
-      //   child: Text(""),
-      // ),
       child: Block(
         color: color,
       ),
