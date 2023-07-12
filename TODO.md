@@ -20,6 +20,7 @@
 [ ] TextButton
 [ ] IconButton
 [ ] ToggleButton
+[ ] BackdropFilter
 
 ### Pattern, Third Packages
 
