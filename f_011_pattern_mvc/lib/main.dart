@@ -56,13 +56,13 @@ class HomePage extends StatelessWidget {
                   onPressed: () {
                     controller.add();
                   },
-                  child: const Text("Add"),
+                  child: const Text("Plus"),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     controller.plus();
                   },
-                  child: const Text("Plus"),
+                  child: const Text("Minus"),
                 ),
                 ElevatedButton(
                   onPressed: () {
