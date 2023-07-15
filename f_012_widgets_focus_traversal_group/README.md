@@ -1,6 +1,6 @@
 # f_012_widgets_focus_traversal_group
 
-A new Flutter project.
+A new Flutter application for widget 'FocusTraversalGroup'.
 
 ## Getting Started
 
