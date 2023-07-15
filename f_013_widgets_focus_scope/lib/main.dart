@@ -1,9 +1,3 @@
-// Copyright 2014 The Flutter Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
-// Flutter code sample for FocusScope
-
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -92,20 +86,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     final Size stackSize = constraints.biggest;
     return Stack(
       fit: StackFit.expand,
-      // The backdrop is behind the front widget in the Stack, but the widgets
-      // would still be active and traversable without the FocusScope.
       children: <Widget>[
-        // TRY THIS: Try removing this FocusScope entirely to see how it affects
-        // the behavior. Without this FocusScope, the "ANOTHER BUTTON TO FOCUS"
-        // button, and the IconButton in the backdrop Pane would be focusable
-        // even when the backdrop wasn't visible.
         FocusScope(
-          // TRY THIS: Try commenting out this line. Notice that the focus
-          // starts on the backdrop and is stuck there? It seems like the app is
-          // non-responsive, but it actually isn't. This line makes sure that
-          // this focus scope and its children can't be focused when they're not
-          // visible. It might help to make the background color of the
-          // foreground pane semi-transparent to see it clearly.
           canRequestFocus: backdropIsVisible,
           child: Pane(
             icon: const Icon(Icons.close),
@@ -115,8 +97,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                // This button would be not visible, but still focusable from
-                // the foreground pane without the FocusScope.
                 ElevatedButton(
                   onPressed: () => debugPrint('You pressed the other button!'),
                   child: const Text('ANOTHER BUTTON TO FOCUS'),
@@ -142,8 +122,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           child: Pane(
             icon: const Icon(Icons.menu),
             focusNode: foregroundNode,
-            // TRY THIS: Try changing this to Colors.green.withOpacity(0.8) to see for
-            // yourself that the hidden components do/don't get focus.
             backgroundColor: Colors.green,
             onPressed: backdropIsVisible ? null : () => setState(() => backdropIsVisible = true),
             child: DefaultTextStyle(style: Theme.of(context).textTheme.headline2!, child: const Text('FOREGROUND')),
@@ -155,8 +133,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
   @override
   Widget build(BuildContext context) {
-    // Use a LayoutBuilder so that we can base the size of the stack on the size
-    // of its parent.
     return LayoutBuilder(builder: _buildStack);
   }
 }
